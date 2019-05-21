@@ -1,0 +1,22 @@
+{
+	"1": {
+		"password": "1234",
+		"name": "first"
+	},
+	"2": {
+		"password": "1234",
+		"name": "first"
+	},
+	"first_user": {
+		"password": "first_pass",
+		"name": "abet"
+	},
+	"seconde_user": {
+		"password": "second_pass",
+		"name": "betty"
+	},
+	"sdfsd": {
+		"password": "1234",
+		"name": "sen"
+	}
+}

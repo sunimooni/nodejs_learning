@@ -36,3 +36,22 @@ Callback Function
 1. 자바스크립트에서 function은 일급 객체이다. Object like String, Array, Number, ...
 2. Callback function : 특정 함수에 매개변수로서 전달된 함수.
 
+EJS, RESTful API, SESSION
+ [express,ejs,body-parser,express-session]
+1. EJS 탬플릿 엔진
+	- 탬플릿을 읽어 엔진의 문법과 설정에 따라서 파일을 HTML 형식으로 변환시키는 모듈.
+	- EJS는 HTML에서 <% %>을 사용하여 서버의 데이터를 사용하거나 코드 실행.
+	- <% 자바스크립트 코드 %>
+	- <% 출력 할 자바스크립트 객체 %> // rounter에서 객체 받아올 수 있다.
+2. RESTful API
+	- Representational State Transfer
+	- REST 서버는 클라이언트로 하여금 HTTP 프로토콜을 사용하여, 서버 정보 접근 및 변경
+	- JSON, TEXT, XML
+	- HTML METHOD
+		GET 조회
+		PUT 생성 및 업데이트
+		DELETE 제거
+		POST 생성
+3. 
+
+
