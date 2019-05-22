@@ -62,5 +62,41 @@ Mongoose
 - ODM은 DB와 객체지향 언어 사이 호환되지 않는 데이터 변환 프로그래밍 기법이다.
 - APP -> JAVASCRIPT OBJECT 매핑
 
+MongoDB
+- C++로 작성된오픈소스.
+- 문서지향적(Document-Oriented)적 Cross-platform DB.
+- 확장성, 성능 높음. Not Only SQL => 고정된 스키마 및 JOIN이 존재하지 않는다.
+	1. Document [Record]
+	- (_id) : Primary key
+	- 데이터의 구조는 한개 이상의 KEY-VALUE pair[document]로 이루어져 있다.
+	- 동적인 schema를 가지고 있다. 같은 collection안에 있는 다른 document끼리 다른 scheme 가질 수 있다. [다른 key 가질 수 있다.]
+	2. Collection [Table]
+	- Document들이 Collection 내부에 위치하고 있다.
+	- RDMS의 table과 비슷한 개념 but schema를 따로 가지고 있지는 않다.
+	3. Database
+	- Collection들의 물리적인 컨테이너.
+	4. Data Modeling
+	- 사용자의 요구에 따라 schema 디자인한다.
+	- 객체들을 함께 사용하게 된다면, 하나의 Document에 합친다(ex: 게시물-덧글)
+	- 하나의 Document에 합치지 않을 것이면, 아애 따로 사용한다.(join 연산x)
+	- 읽을 때 join x, 데이터 작성할 때 join o
+
+
+
+RDBMS	 vs	MongoDB
+Database	Database
+Table		Collection
+Tuple / Row	Document
+Column		Key / Field
+Table Join	Embedded Documents
+Primary Key	Primary Key (_id)
+
+Database Server & Client
+mysqld		mongod
+mysql		mongo
+
+
+
+
 
 /* 참조 : https://velopert.com/node-js-tutorials */
