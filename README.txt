@@ -37,7 +37,6 @@ Callback Function
 2. Callback function : 특정 함수에 매개변수로서 전달된 함수.
 
 [express,ejs,body-parser,express-session]
-
 EJS 탬플릿 엔진
 - 탬플릿을 읽어 엔진의 문법과 설정에 따라서 파일을 HTML 형식으로 변환시키는 모듈.
 - EJS는 HTML에서 <% %>을 사용하여 서버의 데이터를 사용하거나 코드 실행.
@@ -56,5 +55,12 @@ RESTful API
 
 Express-Session
 - 세션을 관리하기 위해 필요한 미들웨어
- 
+
+[express,mongoose,body-parser]
+Mongoose
+- MongoDB 기반의 ODM(Object Data Mapping)-Node.js 전용 라이브러리 이다.
+- ODM은 DB와 객체지향 언어 사이 호환되지 않는 데이터 변환 프로그래밍 기법이다.
+- APP -> JAVASCRIPT OBJECT 매핑
+
+
 /* 참조 : https://velopert.com/node-js-tutorials */
