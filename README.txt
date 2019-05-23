@@ -144,7 +144,10 @@ MongoDB
 			upsert		(boolean)	[optional] true이면 query한 document 없을시 새로 추가
 			multi 		(boolean)	[optional] true이면 여러개의 document를 수정
 			writeConcern	(document)	[optional] 업데이트에 필요한 설정값 // writeConcern을 사용하려면 파라미터 생략.
-
+	6. DB dump
+	- mongodump --host 127.0.0.1 --port 27017
+	
+	
 
 RDBMS	 vs	MongoDB
 Database	Database
