@@ -131,7 +131,20 @@ MongoDB
 			ex)db.articles.find({"title": "article03"}, {comments: {$slice: 1}}).pretty()
 		- $elemMath
 			embedded에서 해당 사항만 추출	
-		
+		3. find() 메소드 활용
+		=> find() 메소드 사용시 cursor 형태의 결과 값 반혼. 
+		- cursor.sort({key : value, key :value}) // value의 값은 1(오름차순) or -1(내림차순)
+		- cursor.limit(value) // value는 출력할 갯수 값.
+		- cursor.skip(value) // 처음에 몇개 거르고 시작할 건지.
+		4. UPDATE
+		$set 변경, $push 추가, $pull 제거
+		- db.collection.update(<query>,<update>,{}) // 특정 field 수정 + 존재하는 document 대체
+			query 		(document)	업데이트 할 document의 criteria를 정한다.
+			update		(document)	document에 적용할 변동사항이다.
+			upsert		(boolean)	[optional] true이면 query한 document 없을시 새로 추가
+			multi 		(boolean)	[optional] true이면 여러개의 document를 수정
+			writeConcern	(document)	[optional] 업데이트에 필요한 설정값 // writeConcern을 사용하려면 파라미터 생략.
+
 
 RDBMS	 vs	MongoDB
 Database	Database
