@@ -80,8 +80,58 @@ MongoDB
 	- 객체들을 함께 사용하게 된다면, 하나의 Document에 합친다(ex: 게시물-덧글)
 	- 하나의 Document에 합치지 않을 것이면, 아애 따로 사용한다.(join 연산x)
 	- 읽을 때 join x, 데이터 작성할 때 join o
-
-
+	5. How to use
+	- create Database : use < >
+	- show Databases : db, show dbs
+	- insert document : db.book.insert("{~~}") // book collection 안에 document 추가
+	- drop Database : use <삭제할 db> -> db.dropDatabase();
+	- create collection : db.createCollection(name,[options])
+		option: capped [size를 꼭 설정해야 한다], autoIndex [_id 필드에 index 자동]
+			size [maximum size ~bytes], max [최대 개수]
+	- show collections
+ 	- drop colleciton : db.<collections>.drop()
+	- remove document : db.<collections>.remove(criteria, justOne)
+		- criteria (document) => 삭제할 데이터의 기준값, {}이면 모든 데이터 삭제 
+		- justOne  (boolean) => true면 1개의 다큐먼트제거, false 면 모두
+	- db.<>.find(query, projection)
+		=> pretty() 이쁘게 출력
+		=> sort()
+		=> limit()
+		=> skip()
+		return 값은 cursor이다. cursor는 query 요청의 결과값을 가르키는 pointer이다.
+		1. query
+		- 비교 연산자
+			$eq equals
+			$gt greater than
+			$gte greater than or equals
+			$lt less than
+			$lte less than or equals
+			$ne not equal
+			$in [] 주어진 배열안에 속하는 값
+			$nin [] 주어진 배열안에 속하지 않는 값
+		- 논리 연산자
+			$or, $and 
+			$not 주어진 조건이 false 일때, true
+			$nor 주어진 모든 조건이 false일때 true
+		- regax 연산자 [정규식]
+			{ <field> : { $regex : 'pattern', $options : '<options>' } }
+			{ <field>: /pattern/<options> }
+				options => i 대소문자무시, m 정규식에서 ^ 사용시 \n 있다면 무력화
+					   x 정규식 안에 있는 whitespace 모두 무시, s . 사용시 \n 포함 매치
+		- $where 연산자
+			ex) db.articles.find({$where: "this.comments.length == 0"})
+		- $elemMatch 연산자
+			Embedded Documents 배열을 쿼리할 때 사용한다. sub { }
+			embedded에서 해당 사항 있는 것 추출
+		2. projection
+		- 쿼리의 결과값에서 보여질 field를 정의한다.
+		- ex) db.articles.find({},{"_id":false,"title":true ...})
+		- slice 연산자
+			$slice : Embedded Document 배열을 읽을때 limit 설정
+			ex)db.articles.find({"title": "article03"}, {comments: {$slice: 1}}).pretty()
+		- $elemMath
+			embedded에서 해당 사항만 추출	
+		
 
 RDBMS	 vs	MongoDB
 Database	Database
