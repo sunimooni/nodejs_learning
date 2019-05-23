@@ -146,7 +146,23 @@ MongoDB
 			writeConcern	(document)	[optional] 업데이트에 필요한 설정값 // writeConcern을 사용하려면 파라미터 생략.
 	6. DB dump
 	- mongodump --host 127.0.0.1 --port 27017
-	
+
+	7.Index
+	- MongoDB에서 데이터 쿼리를 효율적으로 할 수 있게 해준다.
+	- MongoDB는 collection scan을 하나하나 조회하는 방식으로 한다. => 느려짐.
+		이부분을 향상 시키기위해 index 이용, Document 필드에 index를 건다.
+		데이터를 설정한 키 값을 가지고 document들을 가르키는 포인터로 B-Tree 생성.
+		=> balanced binary tree 이용 쿼리 속도를 매우 빠르게 향상.
+	- Index의 종류
+		모든 MongoDB의 collection은 기본적으로 _id 필드에 인덱스 존재.
+		1. 기본 인덱스_id : default -> ObjectId 로 설정. unique.
+		2. Single 필드 인덱스 
+		3. compound 필드 인덱스
+		4. Multikey 인덱스
+		5. Geospatial 인덱스
+		6. Text 인덱스
+		7. hashed 인덱스
+		
 	
 
 RDBMS	 vs	MongoDB
