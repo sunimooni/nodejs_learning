@@ -11,20 +11,20 @@ app.use(bodyParser.json());
 // [configure server port]
 var port = process.env.port || 8080;
 
-// [configure router]
-var router = require('./routes/index')(app);
-
 // [configure mongoose]
-
-// connect to mongodb server
 var db = mongoose.connection;
 db.on('error', console.error);
 db.once('open', function(){
 	// connceted to mongodb server
 	console.log("connected to mongod server");
 });
-
 mongoose.connect('mongodb://localhost/mongodb_tutorial');
+
+// [define model]
+var Book = require('./models/book');
+
+// [configure router]
+var router = require('./routes')(app,Book);
 
 // [RUN SERVER]
 var server = app.listen(port, function(){
