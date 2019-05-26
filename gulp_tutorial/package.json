@@ -1,0 +1,19 @@
+{
+  "name": "glup_tutorial",
+  "version": "1.0.0",
+  "description": "gulp.js => 파일을 수정할 때, 자동으로 서버에 업뎃 해결.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "babel-core": "^6.26.3",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-register": "^6.26.0",
+    "gulp": "^4.0.2",
+    "gulp-util": "^3.0.8"
+  },
+  "dependencies": {}
+}
