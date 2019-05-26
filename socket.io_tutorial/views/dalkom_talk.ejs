@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Dalkom Talk</title>
+    <script src="/javascripts/jquery-1.11.3.min.js"></script>
+    <script src="/javascripts/socket.io.js"></script>
+    <link href="/stylesheets/style.css" rel="stylesheet"/>
+    <script>
+
+    $(function(){
+      /* 소켓 서버에 연결.*/
+      var socket = io('http://localhost:3000/');
+      /*
+	socket.on('분류', function(변수))
+	=> my message 라는 토픽으로 socket 통신이 오면, 통신에 있는 msg 라는 변수를 가지고 다음 함수를 실행해라.
+      */
+      socket.on('my message', function (msg) {
+        $('#messages').append($('<p class="talk me">').text(msg));
+      });
+      socket.on('other message', function (msg) {
+        $('#messages').append($('<p class="talk other">').text(msg));
+      });
+
+      $("#input").keyup(function(key){
+        if(key.keyCode==13){
+	/*
+	  socket.emit('분류',변수)
+	  => socket.on()의 반대역할. 분류로 다음 변수를 보내라!
+	  => 1개 변수, 배열, json 형태로 보낸다.
+	
+	*/
+          socket.emit('message', $("#input").val());
+          $("#input").val("");
+        }
+      });
+      $("#btn").on('click', function(){
+        socket.emit('message', $("#input").val());
+        $("#input").val("");
+      });
+    })
+
+    </script>
+
+  </head>
+  <body>
+    <div class="background" >
+      <div class ="msgbox" id="messages">
+    </div>
+        <input id="input" class="msg" type="text"/>
+          <button id="btn" class="send" type="button">전송</button>
+    </div>
+  </body>
+</html>

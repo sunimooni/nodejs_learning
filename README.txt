@@ -181,4 +181,6 @@ mysql		mongo
 
 
 
+/* 실시간 통신 : socket.io https://dalkomit.tistory.com/50?category=542200*/
+/* 암호 모듈 : crypto https://dalkomit.tistory.com/18?category=542200 */
 /* 참조 : https://velopert.com/node-js-tutorials */
